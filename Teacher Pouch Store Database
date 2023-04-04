@@ -1,0 +1,34 @@
+--Create a teacher pouch store database
+
+CREATE TABLE merchandize(id INTEGER PRIMARY KEY, item TEXT, size TEXT, price INTEGER, rating INTEGER);
+
+INSERT INTO merchandize VALUES (1, "Backpack", "small", 20, 3);
+INSERT INTO merchandize VALUES (2, "Backpack", "medium", 30, 4);
+INSERT INTO merchandize VALUES (3, "Backpack", "large", 40, 5);
+INSERT INTO merchandize VALUES (4, "Water Bag", "small", 5, 3);
+INSERT INTO merchandize VALUES (5, "Water Bag", "medium", 10, 4);
+INSERT INTO merchandize VALUES (6, "Water Bag", "large", 20, 5);
+INSERT INTO merchandize VALUES (7, "Pencil Pouch", "small", 2, 2);
+INSERT INTO merchandize VALUES (8, "Pencil Pouch", "medium", 4, 4);
+INSERT INTO merchandize VALUES (9, "Pencil Pouch", "large", 8, 4);
+INSERT INTO merchandize VALUES (10, "Notes Pouch", "small", 5, 4);
+INSERT INTO merchandize VALUES (11, "Notes Pouch", "medium", 5, 4);
+INSERT INTO merchandize VALUES (12, "Notes Pouch", "large", 5, 4);
+INSERT INTO merchandize VALUES (13, "USB Charging Port", "NA", 10, 4);
+INSERT INTO merchandize VALUES (14, "First Aid Pouch", "NA", 10, 5);
+INSERT INTO merchandize VALUES (15, "Snack Pouch", "NA", 10, 4);
+
+
+--display list of available merchandize by size
+SELECT * FROM merchandize ORDER BY size;
+
+--what is the avg rating of large items?
+SELECT AVG(rating) "avg rating"
+FROM merchandize
+where size='large';
+
+--what are the top rated items?
+SELECT item, size, rating
+FROM merchandize
+order by rating desc 
+limit 7; 
